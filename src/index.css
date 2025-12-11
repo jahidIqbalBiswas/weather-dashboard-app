@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@theme {
+  --font-satoshi: [ "Satoshi", "sans-serif"];
+  --color-body: "#1D1E28";
+  --color-light: "#fff";
+}
+@layer utilities {
+  .container {
+    @apply mx-auto p-6;
+  }
+}

@@ -1,0 +1,26 @@
+import { useContext } from "react";
+import { WeatherContext } from "../../contexts/";
+import PreLoader from "../Preloader";
+import ToggleFavourite from "./ToggleFavourite";
+import WeatherCondition from "./WeatherCondition";
+import WeatherHeadline from "./WeatherHeadline";
+export default function WeatherBoard() {
+  const { loading } = useContext(WeatherContext);
+  return (
+    <div className="container">
+      <div className="grid bg-black/10 rounded-xl backdrop-blur-md border-2 lg:border-[3px] border-white/[14%] px-4 lg:px-14 py-6 lg:py-10 min-h-[520px] max-w-[1058px] mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-6">
+          {loading.status ? (
+            <PreLoader loadingText={loading.message} />
+          ) : (
+            <>
+              <ToggleFavourite />
+              <WeatherHeadline />
+              <WeatherCondition />
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
